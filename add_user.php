@@ -7,29 +7,31 @@
 <table>
 		<tr>
 			<td width="80px">
-				<a  href="index.html"> <h3>Back</h3></a>
+				<a  href="manage_users.php"> <h3>Back</h3></a>
 			</td>
 		</tr>
 	</table>
 <?php
+
+
 require('main_page.php');
 ?>
-	<!-- 						//-					 -->
+	<!-- 	  	-	-//-	-			-->
 
-<table border="0"  cellpadding="3" class="new_user_t" >
+<table border="0" cellspacing="1"  cellpadding="4" class="new_user_t" >
 
 	<form action="#" method="POST">
-		<tr bgcolor="#FFCC33">
+		<tr bgcolor="#CCCCFF">
 			<td>
 				<h2>Add user</h2>
 			</td>
 		</tr>
 		<tr >
-			<td width="280px">
+			<td width="280px" bgcolor="#CCCCFF">
 				Enter your name:
 			</td>
 		</tr>
-		<tr bgcolor="#336699">
+		<tr bgcolor="#FFCC33">
 			<td>
 				<input type="text" name="user_name" size="35">
 			</td>
@@ -39,14 +41,22 @@ require('main_page.php');
 					{
 						if(empty($_POST['user_name']) ) 
 						{
-							echo  "Uncorrect name";	
+							echo "<div id='wrong_data'>";
+							echo  "Incorrect name";	
+							echo "</div>";
+						}
+						else
+						{
+							echo "<div id='wright_data'>";
+							echo "Correct";
+							echo "</div>";
 						}
 					}
 				?>
 			</td>
 		</tr>
-		<tr bgcolor="#FFCC33">
-			<td colspan="2">
+		<tr >
+			<td colspan="2" bgcolor="#CCCCFF">
 			<br>
 				Address example: вул. Будівельників, 38/14, Київ, місто Київ 
 			</td>
@@ -57,13 +67,21 @@ require('main_page.php');
 			</td>
 			<td>
 				<?php 
-					if(isset($_POST['user_submit_btn']) ) 
-					{
+					// if(isset($_POST['user_submit_btn']) ) 
+					// {
 						if(empty($_POST['user_address']) ) 
 						{
-							echo  "Uncorrect address ";	
+							echo "<div id='wrong_data'>";
+							echo  "Incorrect address ";	
+							echo "</div>";
 						}
-					}
+						else
+						{
+							echo "<div id='wright_data'>";
+							echo "Correct";
+							echo "</div>";
+						}
+					// }
 				?>
 			</td>
 		</tr>
@@ -80,14 +98,18 @@ require('main_page.php');
 		</tr>
 	</form>
 </table>
-
-<?php
-// 	if(isset($_POST['user_submit_btn']) )
-// {
-// 	add_user(); 
-// 	echo "I love U baby";
-// }
-?>
  
+ <?php
+
+if($_GET["".$about_user['id'].""] ==2 )
+{
+	echo "переменная существует";
+}
+
+?>
+<!--  Разобраться с занесением в базу данных -->
+ <div id='wr_data'>
+ 	Enter your password
+ </div>
 	</body>
 </html>

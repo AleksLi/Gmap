@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // вписываем данные для работы с SQL
 $user_name = "root" ;
 $user_pass = "";

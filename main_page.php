@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // подключаем файл для работы с базой данных
 require('database.php');
@@ -19,10 +19,34 @@ $insert_t = "INSERT INTO new_user SET
 			mysql_query($insert_t, $link) ;
 		}
 	}
-	
-	function add_user() {
-		mysql_query($insert_t, $link) ;
+
+
+if(isset($_POST['user_submit_btn']) && mysql_query($insert_t, $link) == true ) {
+	if(!headers_sent()){	
+		header('Location: manage_users.php');
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ------------------------------------ Всё что не понадобилось еще-----------------------------
+	
+	// function add_user() {
+	// 	mysql_query($insert_t, $link) ;
+	// }
 		
 	 		//строка запроса в базу данных
  		

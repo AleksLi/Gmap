@@ -1,6 +1,45 @@
-﻿#submit_btn {
+#submit_btn {
 	text-align: right;
 }
 .new_user_t {
 	padding-left: 40px;
+}
+#wright_data {
+	color:green;
+	font-size: 20px;
+}
+#wrong_data {
+	color:  red;
+	font-size: 20px;
+}
+.manage_users_t	{
+	font: sans-serif;
+	font-weight: bold;
+	border-collapse: collapse;
+	border: 2px solid;
+	text-align: left;
+	vertical-align: center;
+	width: 700px;
+	margin-left: 40px;
+}
+#row1 td {
+	background-color: #9999FF;
+	padding: 10px 2px 10px 5px;
+}
+#total_column {
+ 	padding: 10px 2px 10px 5px;
+	border-right: 2px solid;
+}
+#column1 {
+	border: 2px solid;
+}
+#column2 {
+	border-bottom: 2px solid;
+}
+#column3 {
+	border-left: 2px solid;
+	border-bottom: 2px solid;
+}
+#column4 {
+	border: 2px solid;
 }
