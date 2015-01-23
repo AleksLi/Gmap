@@ -15,9 +15,9 @@
 		</tr>
 	</table>
  <?php
+// подключаем базу данных
 require('database.php');
 
-// $sql_fetch = "SELECT * FROM new_user WHERE `id`=3";
  $sql_fetch2 = "SELECT * FROM new_user";
 $result2 = mysql_query($sql_fetch2, $link);
 // пoпробуем вывести наших пользователей
@@ -30,7 +30,7 @@ while ($user_info=mysql_fetch_array($result2) )
 	";
 
 }
-// $user_info = mysql_fetch_array($result2);
+
 echo "<br>";
 ?>
 <table class="manage_users_t" cellspacing="0">
@@ -50,13 +50,14 @@ echo "<br>";
 	</tr>
 
 <?php
-	 $sql_fetch = "SELECT * FROM new_user";
-	$result = mysql_query($sql_fetch, $link);
 
+	$sql_fetch = "SELECT * FROM new_user";
+	$result = mysql_query($sql_fetch, $link);
+// в цикле создаем часть таблицы, которая заполняется при введении данных в форму. Работает через базу данных.
 		while ($about_user=mysql_fetch_array($result)) 
 		{
-		// <input type='hidden' name='".$about_user['id']."'>
-			// $about_user['id'];
+			// <input type='text' name='num_".$about_user['id']."' value='num_".$about_user['id']."'>
+
 			echo" <form action='#' method='GET'>
 				<tr>
 					<td id='total_column'>  </td>
@@ -67,26 +68,37 @@ echo "<br>";
 					<td id='total_column'>
 						".$about_user['address']." 
 					</td>
-					<td>
-					<input type='text' name='num_1".$about_user['id']."' value='num_".$about_user['id']."'>
-						
+					<td id='del_edit_col'>
+						<a href='".get_str($str)."add_user.php?name_db=".$about_user['name']."&address_db=".$about_user['address']."&edit_id_db=".$about_user['id']."' > edit </a>
 					</td>	
-					<td></td>	
+					<td id='del_edit_col'>
+						<a href='".get_str($str)."main_page.php?id_db=".$about_user['id']."' > delete </a>
+					</td>	
 				</tr>
 				</form>
 			";
-			$id_num[] = $about_user['id'];
+			$id_num[] ="".$about_user['id']."";
 		}
 
 echo "</table>";
-
-// $id_num =array($_GET["".$about_user['id']."'"]);
-
-// print_r($id_num); 
-
-// $id_num= $_GET["".$about_user['id']."'"];
+echo "<hr align='center' width='1200px'>";
 
 print_r($id_num);
+echo "<br>";
+echo DIR." ---- исходная строка";
+
+	echo "<br>";
+// функция для преобразования URL запроса, замена \ на /  . 
+function get_str($str)
+{
+	$str_change = explode('\\' ,$str); 
+	$str = implode('/', $str_change);
+	return $str;
+}
+	print_r(get_str(DIR));
+
+
+
 ?>
 	
 
