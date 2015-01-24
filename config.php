@@ -1,21 +1,21 @@
 <?php
 
-// Пару констант для работы
+// constant
 define("DIR", __DIR__);
 
-// 
+// database connect
 $host = "localhost";
 $user = "root" ;
 $pass = "";
 $db   = "gmap";
 
-// работа с базой данных
+// check database connect
 if(!$link = mysql_connect($host, $user, $pass)) {
 	echo "не удалось подключиться к базе данных<br>";
 	exit();
 }
 
-if(!mysql_select_db($db, $link)){
-	echo "не удальлось выбрать базу данных<>";
+if(!mysql_select_db($db, $link)) {
+	echo "не удальлось выбрать базу данных";
 	exit();
 }
