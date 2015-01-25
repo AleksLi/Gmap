@@ -1,8 +1,5 @@
 <?php
 
-// constant
-define("DIR", __DIR__);
-
 // database connect
 $host = "localhost";
 $user = "root" ;
