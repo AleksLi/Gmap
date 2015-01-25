@@ -10,6 +10,11 @@ a {
 	color: #448edd;
 }
 
+#map {
+	width: 800px; 
+	height: 500px;
+}
+
 #wrapper {
 	width: 800px;
 	margin: 0 auto;
