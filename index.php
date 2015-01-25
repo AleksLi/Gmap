@@ -1,3 +1,5 @@
+<?php require_once('config.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +9,25 @@
 </head>
 <body>
 
-<a  href="index.php?id=users"> <h3>Manage users</h3></a>
-	
-	
+	<div id="wrapper">
+		<?php
+			$page = $_GET['q'];
+			$manageUsers = '<a href="index.php?q=users">Manage users</a>';
+
+			if ($page == 'users') {
+				include 'files/list-users.php';
+			} else if ($page == 'edit') {
+				include 'files/edit-user.php';
+			} else if ($page == 'add') {
+				include 'files/add-user.php';
+			} else {
+				echo $manageUsers;
+		?>
+
+			<div><h1>MAP</h1></div>
+
+		<?php } ?>
+	</div>
+
 </body>
 </html>
